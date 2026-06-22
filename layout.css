@@ -1,0 +1,138 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* PAGE BACKGROUND */
+body {
+    background: #f7dccc;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #ffffff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    height: 40px;   /* ← yahan size control hota hai */
+    width: auto;    /* image distort nahi hogi */
+}
+
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #7a3e1d;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: #ffffff;
+    padding: 25px;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    color: #7a3e1d;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: #f28c52;
+    font-weight: bold;
+}
+
+.logout {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+/* WHITE CARD */
+.card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+}
+/* CENTER EMPTY STATE */
+.empty-center {
+    min-height: 300px;              /* height adjust kare */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        /* vertical center */
+    align-items: center;            /* horizontal center */
+    text-align: center;
+}
+
+.empty-center img {
+    width: 220px;
+    margin-bottom: 20px;
+}
+/* EMPTY STATE CENTER (REUSABLE) */
+.empty-center {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.empty-center img {
+    width: 220px;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+.empty-center p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* ORANGE BUTTON (REUSABLE) */
+.orange-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #f28c52;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.orange-btn:hover {
+    background: #e57a3c;
+}

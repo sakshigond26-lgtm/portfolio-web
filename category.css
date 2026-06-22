@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+/* Navbar */
+.navbar {
+    background: #f7e3d8;
+    padding: 15px 40px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: #f08a4b;
+    font-weight: 600;
+}
+
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 50px;
+  background: #f3d8cc;
+  margin-top: 20px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1rem;
+}
+
+/* CATEGORY SEARCH */
+.category-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+select,
+.search-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background: #f08345;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 60px;
+  font-weight: bold;
+}
+
+/* BOOK CATEGORY CARDS */
+.book-categories {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+  gap: 40px;
+}
+
+.card {
+  background: #fff;
+  width: 180px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 5px 0;
+  font-weight: bold;
+}
+.logo img {
+  height: 65px;
+  width: auto;
+}
+/* --- CATEGORY CARD STYLING --- */
+
+/* Targets the anchor tag wrapping the card */
+.category-card {
+    /* Layout and Size */
+    width: 200px; /* Adjust as needed */
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Remove default link styles */
+    text-decoration: none; /* Removes underline */
+    color: #333; /* Sets a darker text color */
+    display: block; /* Makes the whole card area clickable */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect for a better user experience */
+.category-card:hover {
+    transform: translateY(-5px); /* Lifts the card slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the category image */
+.category-image {
+    width: 100%; /* Image takes full width of the card */
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Style for the main category name */
+.category-text {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333; /* Ensure text remains dark */
+}
+
+/* Style for the book count text */
+.category-count {
+    font-size: 0.9em;
+    color: #666;
+}

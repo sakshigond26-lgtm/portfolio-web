@@ -1,0 +1,59 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}Book Approvals | Bookalay{% endblock %}
+
+{% block content %}
+
+<h1>Book Approval</h1>
+<p>Approve or reject newly uploaded books.</p>
+
+<div class="section">
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Seller</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for book in books %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ book.name }}</td>
+    <td>{{ book.seller }}</td>
+    <td>₹{{ book.price }}</td>
+
+    <td>
+        {% if book.status %}
+            <span style="color:green;">Approved</span>
+        {% else %}
+            <span style="color:orange;">Pending</span>
+        {% endif %}
+    </td>
+
+    <td>
+        {% if not book.status %}
+            <a href="{% url 'approve_book' book.id %}">
+                <button class="approve">Approve</button>
+            </a>
+
+            <a href="{% url 'reject_book' book.id %}">
+                <button class="reject">Reject</button>
+            </a>
+        {% else %}
+            <span style="color:green;">Done</span>
+        {% endif %}
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="6">No books available</td>
+</tr>
+{% endfor %}
+        
+
+    </table>
+</div>
+
+{% endblock %}

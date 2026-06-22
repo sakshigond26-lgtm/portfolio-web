@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'upload.css' %}">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>Upload Book - Bookalay</title>
+</head>
+<body>
+    {% if messages %}
+<div class="toast-container position-fixed top-50 start-50 translate-middle p-3" style="z-index:9999;">
+    {% for message in messages %}
+    <div class="toast show text-white 
+        {% if message.tags == 'error' %}bg-danger{% else %}bg-success{% endif %}
+        border-0 mb-2">
+
+        <div class="toast-body">
+            {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    setTimeout(() => {
+        document.querySelectorAll('.toast').forEach(t => t.remove());
+    }, 3000);
+</script>
+{% endif %} 
+
+    <!-- Navbar -->
+    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/home1.png' %}" width="70" height="40">
+        </a>
+
+        <div class="collapse navbar-collapse show">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'p_calculator' %}">Price Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_dashboard' %}">
+                        <i class="bi bi-person-circle fs-3"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Main Content -->
+    <main>
+        <div class="form-container">
+            <h2><i class="bi bi-book me-2"></i>Upload Your Book</h2>
+            
+            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label>Book Title</label>
+                    <input type="text" name="title" class="form-control" placeholder="Enter book title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Author Name</label>
+                    <input type="text" name="author" class="form-control" placeholder="Enter author name" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>MRP Price (₹)</label>
+                        <input type="number" name="mrp" class="form-control" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label>New Price (₹)</label>
+                        <input type="number" name="new_price" class="form-control" step="0.01" placeholder="0.00" required>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Category</label>
+                    <select name="category" class="form-select" multiple required>
+                        <option>Historical</option>
+                        <option>Fictional</option>
+                        <option>Academic</option>
+                        <option>Science</option>
+                        <option>Biography</option>
+                        <option>Recipe</option>
+                        <option>Comic</option>
+                        <option>Fairy</option>
+                        <option>Fantasy</option>
+                        <option>Horror</option>
+                        <option>Thriller</option>
+                    </select>
+                </div>
+
+<div class="form-row">
+    <!-- Book Condition -->
+    <div class="form-group">
+        <label>Condition</label>
+        <select name="condition" class="form-select" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Like New">Like New</option>
+            <option value="Good">Good</option>
+            <option value="Average">Average</option>
+            <option value="Poor">Poor</option>
+        </select>
+    </div>
+
+    <!-- Book Age -->
+    <div class="form-group">
+        <label>Book Age</label>
+        <select name="book_age" class="form-select" required>
+            <option value="" selected disabled>Select</option>
+            <option value="Less than 1 year">Less than 1 year</option>
+            <option value="1-2 years">1 - 2 years</option>
+            <option value="2-3 years">2 - 3 years</option>
+            <option value="More than 3 years">More than 3 years</option>
+        </select>
+    </div>
+</div>
+
+                
+                <div class="form-group full-width image-upload">
+                    <input type="file" name="book_image" accept="image/*" id="imageInput">
+                    <label for="imageInput">
+                        <i class="bi bi-cloud-upload-fill upload-icon"></i>
+                        <p>📷 Click to Upload Book Image</p>
+                        <small>PNG, JPG, GIF up to 5MB</small>
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="bi bi-upload me-2"></i>Submit Book
+                </button>
+                
+                <div class="view-uploads">
+                    <a href="{% url 'myupload' %}">
+                        <i class="bi bi-eye me-1"></i>View My Uploads
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // File input preview
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file selected';
+            const label = this.nextElementSibling;
+            label.querySelector('p').textContent = fileName.length > 25 ? fileName.slice(0, 25) + '...' : fileName;
+        });
+    </script>
+</body>
+</html>

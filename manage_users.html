@@ -1,0 +1,35 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}Manage Users{% endblock %}
+
+{% block content %}
+<h1>Manage Users</h1>
+<p>Here admin can manage all users.</p>
+
+<div class="section">
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th>User State</th>
+        </tr>
+        {% for user in users %}
+<tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.state }}</td>
+
+</tr>
+{% empty %}
+<tr>
+    <td colspan="6">No Users available</td>
+</tr>
+{% endfor %}
+        
+
+    </table>
+</div>
+
+{% endblock %}

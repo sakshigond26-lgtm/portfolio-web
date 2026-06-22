@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'Login.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<title>Bookalay Login</title>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <h1>Login</h1>
+
+        <!-- Django Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger text-center p-2">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="input-box">
+            <input type="text" name="username" placeholder="USERNAME" required>
+            <i class="bi bi-person-fill"></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" placeholder="PASSWORD" required>
+            <i class="bi bi-lock"></i>
+        </div>
+
+        <div class="remember-forgot mt-2">
+            <label>
+                <input type="checkbox"> Remember Me
+            </label>
+            <a class="text-decoration-underline" href="#">Forgot password</a>
+        </div>
+
+        <div class="d-grid col-6 mx-auto mt-3">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+
+        <div class="register-link mt-3">
+            <p>Don't have an account?
+                <a class="text-primary" href="{% url 'register' %}">Register</a>
+            </p>
+            <p>
+                <a class="text-primary" href="{% url 'adminlogin' %}">Login as Admin</a>
+            </p>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

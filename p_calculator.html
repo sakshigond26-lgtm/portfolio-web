@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'p_calculator.css' %}">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <title>Price Calculator - Bookalay</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/home1.png' %}" width="70" height="40">
+        </a>
+
+        <div class="collapse navbar-collapse show">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'p_calculator' %}">Price Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_dashboard' %}">
+                        <i class="bi bi-person-circle fs-3"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Calculator -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="calculator card shadow-lg">
+                <div class="card-body p-5">
+
+                    <h1 class="text-center mb-4">Used Book Price Calculator</h1>
+
+                    <form method="POST" action="{% url 'p_calculator' %}">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">Book Name</label>
+                            <input type="text" name="bookName" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">MRP (₹)</label>
+                            <input type="number" name="mrp" class="form-control" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Book Age</label>
+                                <select name="bookAge" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option value="0-1" {% if book_age == '0-1' %}selected{% endif %}>Less than 1 year</option>
+                                    <option value="1-2" {% if book_age == '1-2' %}selected{% endif %}>1 - 2 years</option>
+                                    <option value="2-3" {% if book_age == '2-3' %}selected{% endif %}>2 - 3 years</option>
+                                    <option value="3+" {% if book_age == '3+' %}selected{% endif %}>More than 3 years</option>
+
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Condition</label>
+                                <select name="bookCondition" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option value="new" {% if book_condition == 'new' %}selected{% endif %}>Like New</option>
+                                    <option value="good" {% if book_condition == 'good' %}selected{% endif %}>Good</option>
+                                    <option value="average" {% if book_condition == 'average' %}selected{% endif %}>Average</option>
+                                    <option value="poor" {% if book_condition == 'poor' %}selected{% endif %}>Poor</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">
+                            <i class="bi bi-calculator"></i> Calculate Price
+                        </button>
+                    </form>
+
+                    {% if show_result %}
+                    <div class="result-box">
+                        <h3 class="result-title">
+                            <i class="bi bi-check-circle-fill"></i> Your Resale Price
+                        </h3>
+                        <h2 class="result-price">₹ {{ resale_price }}</h2>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

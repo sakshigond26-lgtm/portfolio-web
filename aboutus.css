@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* Navbar */
+.navbar {
+    background: #f7e3d8;
+    padding: 15px 40px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: #f08a4b;
+    font-weight: 600;
+}
+
+
+/* Hero Banner */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: url("images/about_bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* About Section */
+.about-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7e3d8;
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.social-icons a {
+  margin: 0 12px;
+  font-size: 30px;
+  text-decoration: none;
+  color: #000;
+}

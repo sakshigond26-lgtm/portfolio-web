@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-position: center;
+  min-height: 10vh;
+}
+
+/* Navbar */
+.navbar {
+    background: #f7e3d8;
+    padding: 15px 40px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color:#e98b50;
+    font-weight: 600;
+}
+
+body { 
+    background-color: #eda273 !important; 
+}
+.hero-headline { font-size: 3.5rem; font-weight: 700; color: #2c3e50; margin: 60px 0 50px 0; }
+.book-card { transition: all 0.3s; border: none; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.book-card:hover { transform: translateY(-15px); }
+.book-card img { height: 280px; object-fit: cover; }
+
+
+

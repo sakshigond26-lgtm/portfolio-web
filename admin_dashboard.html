@@ -1,0 +1,32 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}Admin Dashboard | Bookalay{% endblock %}
+
+{% block content %}
+
+<h1>Admin Dashboard</h1>
+<p>Manage Bookalay from here.</p>
+
+<div class="cards">
+    <div class="card">
+        <h3>Total Users</h3>
+        <p>{{ total_users }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Books</h3>
+        <p>{{ total_books }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Pending Approvals</h3>
+        <p>{{ pending_books }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Orders</h3>
+        <p>{{ total_orders }}</p>
+    </div>
+</div>
+
+{% endblock %}

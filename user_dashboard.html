@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Bookalay</title>
+       
+
+    <link rel="stylesheet" href="{% static 'layout.css'%}">
+
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+         <img src="{% static 'images/home1.jpg' %}" alt="" >
+    </div>
+    </div>
+
+    <nav class="nav-links">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      <a class="nav-link" href="{% url 'about' %}">About Us</a>
+      <a class="nav-link" href="{% url 'p_calculator' %}">Price Calculator</a>
+      <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+
+        
+
+    </nav>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h3>My Account</h3>
+
+        <a href="{% url 'user_dashboard' %}" >My profile</a>
+        
+        <a href="{% url 'order' %}">My Orders</a>
+        <a href="{% url 'cart' %}">Add to Cart</a>
+        <a href="{% url 'wishlist' %}">Wishlist</a>
+        <a href="{% url 'myupload' %}">My Upload</a>
+        <a href="{% url 'logout' %}" onclick="return confirmLogout()">Logout</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="card">
+
+            <h2>Welcome to your Dashboard 👋</h2>
+            <p class="sub-text">
+                From here you can manage your orders, wishlist, cart and uploaded books.
+            </p>
+
+            <!-- DASHBOARD INFO CARDS -->
+            <div class="stats">
+                <div class="stat-card">
+                    <h4>Total Orders</h4>
+                    <p>{{ total_orders }}</p>
+                </div>
+
+                <div class="stat-card">
+                    <h4>Wishlist Items</h4>
+                    <p>{{ total_wishlist }}</p>
+                </div>
+
+                <div class="stat-card">
+                    <h4>Uploaded Books</h4>
+                    <p>{{ total_uploads }}</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+</body>
+<script>
+function confirmLogout() {
+    return confirm("Are you sure you want to logout?");
+}
+</script>
+</html>

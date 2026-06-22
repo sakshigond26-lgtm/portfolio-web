@@ -1,0 +1,242 @@
+/* Existing Navbar Styles */
+.navbar {
+    background: #f7e3d8;
+    padding: 15px 40px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: #f08a4b;
+    font-weight: 600;
+}
+/* Main Form Container */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f3bda2;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Glass Form Container */
+.form-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 45px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    color: #130303;
+}
+
+.form-container h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+    color: #040000;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: rgba(14, 6, 6, 0.95);
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    height: 52px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    color: #0a0000;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: rgba(20, 12, 12, 0.7);
+}
+
+.form-control:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+/* Select Multiple */
+.form-select[multiple] {
+    height: 120px;
+    padding: 15px;
+}
+
+/* File Upload */
+.image-upload {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-upload:hover {
+    transform: translateY(-3px);
+}
+
+.image-upload label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.image-upload:hover label {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.image-upload p:first-child {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.image-upload p:last-child {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    height: 55px;
+    margin: 30px 0 20px 0;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #f08a4b, #e0723a);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(240, 138, 75, 0.4);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #e0723a, #d05c2a);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(240, 138, 75, 0.6);
+}
+
+/* View Uploads Link */
+.view-uploads {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-uploads a {
+    color: #e86e22;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 30px;
+    border: 2px solid rgba(240, 138, 75, 0.5);
+    border-radius: 25px;
+    background: rgba(240, 138, 75, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.view-uploads a:hover {
+    background: rgba(240, 138, 75, 0.3);
+    border-color: #f08a4b;
+    transform: translateY(-2px);
+}
+
+/* Full Width Utility */
+.full-width {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .form-container {
+        padding: 35px 25px;
+        margin: 20px;
+    }
+    
+    .form-container h2 {
+        font-size: 1.9rem;
+    }
+    
+    .form-select[multiple] {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+}
+
+
+.form-select {
+    width: 100%;
+    height: 52px;
+    padding: 10px 18px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    color: #0a0000;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+.form-select option {
+    background: #ffffff;
+    color: #000;
+}

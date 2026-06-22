@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #fde7dc;
+}
+
+/* Navbar */
+.navbar {
+    background: #f7e3d8;
+    padding: 15px 40px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: #f08a4b;
+    font-weight: 600;
+}
+
+/* Calculator */
+.calculator {
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.calculator h1 {
+    color: #6b3f1d;
+    font-weight: 600;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #f08a4b;
+    box-shadow: 0 0 0 0.2rem rgba(240,138,75,0.25);
+}
+
+/* Button */
+.btn-primary {
+    background: #f08a4b;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #e67732;
+}
+
+/* Result */
+.result-box {
+    margin-top: 30px;
+    padding: 25px;
+    border: 2px solid #6b3f1d;
+    border-radius: 8px;
+    background-color: #fff7f2;
+    text-align: center;
+}
+
+.result-title {
+    color: #6b3f1d;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.result-price {
+    color: #6b3f1d;
+    font-size: 32px;
+    font-weight: 700;
+}

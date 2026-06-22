@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <title>Bookalay-Category</title>
+  <link rel="stylesheet" href="{% static "category.css" %}" />
+</head>
+<body>
+
+  
+    {% if messages %}
+<div class="toast-container position-fixed top-50 start-50 translate-middle p-3" style="z-index:9999;">
+    {% for message in messages %}
+    <div class="toast show text-white 
+        {% if message.tags == 'error' %}bg-danger{% else %}bg-success{% endif %}
+        border-0 mb-2">
+
+        <div class="toast-body">
+            {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    setTimeout(() => {
+        document.querySelectorAll('.toast').forEach(t => t.remove());
+    }, 3000);
+</script>
+{% endif %} 
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/home1.png' %}" width="70" height="40">
+        </a>
+
+        <div class="collapse navbar-collapse show">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'p_calculator' %}">Price Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_dashboard' %}">
+                        <i class="bi bi-person-circle fs-3"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+  <section class="hero">
+    <h2>Discover Your Next Great Read</h2>
+    <p>
+      Explore thousands of carefully curated used books across Historical, Fiction,
+      Science, and Academic categories. Find rare editions, textbooks, and beloved
+      classics at unbeatable prices.
+    </p>
+<form method="GET" action="{% url 'search' %}">
+  <div class="category-search">
+
+    <select name="category">
+      <option value="all">All categories</option>
+      <option value="historical">Historical</option>
+      <option value="fictional">Fictional</option>
+      <option value="academic">Academic</option>
+      <option value="science">Science</option>
+      <option value="biography">Biography</option>
+      <option value="comic">Comic</option>
+      <option value="recipe">Recipe</option>
+      <option value="fairy">Fairy</option>
+      <option>Fantasy</option>
+      <option>Horror</option>
+      <option>Thriller</option>
+    </select>
+
+    <input 
+      class="search-input" 
+      type="text" 
+      name="query"
+      placeholder="Search Book, Authors, categories"
+    />
+
+    <button type="submit" class="search-btn">Search</button>
+
+  </div>
+</form>
+</section>
+
+<div class="container mt-4">
+
+  <div class="row g-3">
+    {% for book in search_results %}
+
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card book-card h-100">
+
+          {% if book.image_url %}
+            <img src="{{ book.image_url }}" class="card-img-top" style="height:180px; object-fit:cover;">
+          {% else %}
+            <img src="https://via.placeholder.com/300x180">
+          {% endif %}
+
+          <div class="card-body">
+            <h6 class="fw-bold">{{ book.title }}</h6>
+            <p class="text-muted small">{{ book.author }}</p>
+            <p class="text-danger fw-bold">₹{{ book.new_price }}</p>
+
+            <a href="{% url 'set_book_session' book.id %}" class="btn btn-primary btn-sm w-100">
+              View Details
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+
+</div>
+
+
+  <section class="book-categories">
+    <div class="card">
+      <a href="{% url 'historical' %}">
+      <img src= "{% static "images/historical.jpg" %}"/>
+      <p>Historical Book</p>
+      
+    </div>
+
+    <div class="card">
+      <a href="{% url 'fictional' %}">
+      <img src="{% static "images/fictional.jpeg" %}"/>
+      <p>Fictional Novel</p>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="{% url 'academic' %}">
+      <img src="{% static "images/academic.jpeg" %}" />
+      <p>Academic Book</p>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="{% url 'science' %}">
+      <img src="{% static "images/science.jpeg" %}" />
+      <p>Science Book</p>
+    </a>
+    </div>
+
+    <div class="card">
+      <a href="{% url 'biography' %}">
+      <img src= "{% static "images/biography.png" %}"/>
+      <p>Biography Book</p>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="{% url 'comic' %}">
+      <img src="{% static "images/comic.png" %}"/>
+      <p>Comic Book</p>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="{% url 'fairy' %}">
+      <img src="{% static "images/fairy.png" %}" />
+      <p>Fairy tale Book</p>
+      </a>
+    </div>
+
+    <div class="card">
+       <a href="{% url 'recipie' %}">
+      <img src="{% static "images/recipie.jpg" %}" />
+      <p>Recipie Book</p>
+       </a>
+    </div>
+  </section>
+  
+</div>
+</body>
+</html>

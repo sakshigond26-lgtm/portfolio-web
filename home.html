@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'Home.css' %}">
+
+    <title>Home | Bookalay</title>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/home1.png' %}" width="70" height="40" alt="Logo">
+        </a>
+
+        <div class="collapse navbar-collapse show">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'p_calculator' %}">Price Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_dashboard' %}">
+                        <i class="bi bi-person-circle fs-3"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= RECTANGLE AD ROTATOR ================= -->
+<div class="ad-wrapper">
+    <div id="adBox" class="carousel slide ad-rectangle" data-bs-ride="carousel" data-bs-interval="3000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="{% static 'images/ad1.png' %}" class="ad-rect-img" alt="Ad 1">
+            </div>
+
+            <div class="carousel-item">
+                <img src="{% static 'images/ad2.png' %}" class="ad-rect-img" alt="Ad 2">
+            </div>
+
+            <div class="carousel-item">
+                <img src="{% static 'images/ad2.png' %}" class="ad-rect-img" alt="Ad 3">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= OPTIONS SECTION ================= -->
+<div class="options">
+    <div class="card1">
+        <a href="{% url 'category' %}">
+            <img src="{% static 'images/Buy.png' %}" class="im" alt="Buy Books">
+            <span class="card1-text">Buy Used Books</span>
+        </a>
+    </div>
+
+    <div class="card2">
+        <a href="{% url 'upload' %}">
+            <img src="{% static 'images/sell.png' %}" class="im" alt="Sell Books">
+            <span class="card2-text">Sell Old Books</span>
+        </a>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="footer-section">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h4>Bookalay</h4>
+            <p>Buy and sell old books easily at affordable prices. 
+               Connecting readers and book lovers in one platform.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'upload' %}">Sell Book</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Info</h4>
+            <p>Email: support@bookalay.com</p>
+            <p>Phone: +91 9876543210</p>
+            <p>Location: India</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-linkedin"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Bookalay. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
